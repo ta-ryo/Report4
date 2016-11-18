@@ -37,10 +37,15 @@ public class Enemy {
          * attackに応じて乱数でダメージを算出し、hero.wounded()によりダメージ処理を実行。
          * @param hero 攻撃対象
          */
-        public void attack(Hero hero){
-            int damage = (int)(Math.random() * attack);
-            System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, hero.getName(), damage);
-            hero.wounded(damage);
+        public void attack(Hero hero,int maximumHP) {
+            if(maximumHP>0) {
+                int damage = (int) (Math.random() * attack);
+                System.out.printf("%sの攻撃！%sに%dのダメージを与えた！！\n", name, hero.getName(), damage);
+                hero.wounded(damage);
+            }
+            else{
+                int damage = 0;
+            }
         }
 
         /**
@@ -48,12 +53,10 @@ public class Enemy {
          * 指定されたダメージを hitPoint から引き、死亡判定を行う。
          * @param damage 受けたダメージ
          */
-        public void wounded(int damage){
+        public void wounded(int damage) {
             hitPoint -= damage;
-            if( hitPoint < 0 ) {
+            if (hitPoint < 0) {
                 dead = true;
                 System.out.printf("モンスター%sは倒れた。\n", name);
             }
         }
-
-    }
