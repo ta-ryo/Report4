@@ -12,7 +12,6 @@ public class EnemyTest {
         enemy.dead = true;
 
         for(int i=0; i<10; i++){
-            hero.attack(enemy);
             enemy.attack(hero);
         }
         assertEquals(heroHP, hero.hitPoint);
