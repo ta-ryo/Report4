@@ -1,9 +1,12 @@
 package jp.ac.uryukyu.ie.e165716;
+
+import sun.font.TrueTypeFont;
+
 public class LivingThing{
-    String name;
-    int hitPoint;
-    int attack;
-    boolean dead;
+    private String name;
+    private int hitPoint;
+    private int attack;
+    private boolean dead;
 
     public LivingThing(String name, int maximumHP, int attack){
         this.name = name;
@@ -15,9 +18,6 @@ public class LivingThing{
 
     public boolean isDead(){
             return dead;
-        }
-    public String getName(){
-            return name;
         }
     public void attack(LivingThing opponent) {
         if (!dead) {
@@ -37,4 +37,14 @@ public class LivingThing{
             System.out.printf("%sは倒れた。\n", name);
         }
     }
+    public String getName(){
+        return this.name;
+    }
+    public int getHitpoint(){
+        return this.hitPoint;
+    }
+    public void setDead(boolean dead){
+        this.dead=dead;
+    }
+
 }
